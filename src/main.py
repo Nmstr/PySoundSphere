@@ -8,6 +8,7 @@ class AudioPlayer:
         self._is_paused = False
         self._start_time = 0
         self._pause_time = 0
+        self._volume = 1.0
 
     def play(self) -> None:
         """
@@ -65,8 +66,9 @@ class AudioPlayer:
         """
         Volume from 0 to 1.
         """
-        return self._playback_backend.get_volume()
+        return self._volume
 
     @volume.setter
     def volume(self, volume: float) -> None:
         self._playback_backend.set_volume(volume)
+        self._volume = volume

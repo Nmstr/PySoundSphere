@@ -43,12 +43,6 @@ class PygameBackend:
         """
         pygame.mixer.music.set_volume(volume)
 
-    def get_volume(self) -> float:
-        """
-        Get the volume.
-        """
-        return pygame.mixer.music.get_volume()
-
     def get_busy(self) -> bool:
         """
         Check if the song is playing.
