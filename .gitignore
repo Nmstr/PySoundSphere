@@ -1,3 +1,5 @@
-mysound.wav
+mysound.*
 .venv
 __pycache__
+test.py
+.vscode
