@@ -1,0 +1,36 @@
+name: Deploy Documentation
+
+on:
+  push:
+    paths:
+      - 'docs/**'
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.x'
+
+    - name: Install MkDocs and dependencies
+      run: |
+        pip install mkdocs mkdocs-material pymdown-extensions
+
+    - name: Pull latest changes from gh-pages
+      run: |
+        git fetch origin gh-pages:gh-pages
+        git checkout gh-pages
+        git pull origin gh-pages
+        git checkout -
+
+    - name: Deploy MkDocs site
+      run: |
+        mkdocs gh-deploy
