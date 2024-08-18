@@ -8,26 +8,28 @@
       
       
       
-        <link rel="canonical" href="https://nmstr.github.io/PySoundSphere/">
+        <link rel="canonical" href="https://nmstr.github.io/PySoundSphere/usage/">
       
       
+        <link rel="prev" href="..">
       
-        <link rel="next" href="usage/">
+      
+        <link rel="next" href="../backends/general/">
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.31">
     
     
       
-        <title>PySoundSphere</title>
+        <title>Usage - PySoundSphere</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.3cba04c6.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.3cba04c6.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -46,7 +48,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -72,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#pysoundsphere" class="md-skip">
+        <a href="#play-audio" class="md-skip">
           Skip to content
         </a>
       
@@ -86,7 +88,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="PySoundSphere" class="md-header__button md-logo" aria-label="PySoundSphere" data-md-component="logo">
+    <a href=".." title="PySoundSphere" class="md-header__button md-logo" aria-label="PySoundSphere" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -106,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Usage
             
           </span>
         </div>
@@ -199,11 +201,9 @@
         
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="." class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
         
   
     
@@ -218,9 +218,11 @@
         
   
   
+    
   
-    <li class="md-tabs__item">
-      <a href="usage/" class="md-tabs__link">
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
         
   
     
@@ -239,7 +241,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="backends/general/" class="md-tabs__link">
+        <a href="../backends/general/" class="md-tabs__link">
           
   
   Playback Backends
@@ -272,7 +274,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="PySoundSphere" class="md-nav__button md-logo" aria-label="PySoundSphere" data-md-component="logo">
+    <a href=".." title="PySoundSphere" class="md-nav__button md-logo" aria-label="PySoundSphere" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -287,6 +289,26 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -296,31 +318,19 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
       
-      
-      <a href="." class="md-nav__link md-nav__link--active">
-        
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
   
   <span class="md-ellipsis">
-    Home
+    Usage
   </span>
   
 
-      </a>
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="usage/" class="md-nav__link">
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -329,6 +339,78 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#play-audio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Play Audio
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pause-audio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pause Audio
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resume-unpause-audio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resume / Unpause Audio
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stop-audio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stop Audio
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#position" class="md-nav__link">
+    <span class="md-ellipsis">
+      Position
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#volume" class="md-nav__link">
+    <span class="md-ellipsis">
+      Volume
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -380,7 +462,7 @@
   
   
     <li class="md-nav__item">
-      <a href="backends/general/" class="md-nav__link">
+      <a href="../backends/general/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -401,7 +483,7 @@
   
   
     <li class="md-nav__item">
-      <a href="backends/sounddevice/" class="md-nav__link">
+      <a href="../backends/sounddevice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -422,7 +504,7 @@
   
   
     <li class="md-nav__item">
-      <a href="backends/pygame/" class="md-nav__link">
+      <a href="../backends/pygame/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -460,8 +542,68 @@
   
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#play-audio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Play Audio
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pause-audio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pause Audio
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resume-unpause-audio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resume / Unpause Audio
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stop-audio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stop Audio
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#position" class="md-nav__link">
+    <span class="md-ellipsis">
+      Position
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#volume" class="md-nav__link">
+    <span class="md-ellipsis">
+      Volume
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -476,8 +618,98 @@
                   
 
 
-<h1 id="pysoundsphere">PySoundSphere</h1>
-<p>PySoundSphere is a high level audio playback library written in python.</p>
+  <h1>Usage</h1>
+
+<h2 id="play-audio">Play Audio</h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Sounddevice</label><label for="__tabbed_1_2">Pygame</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">Play audio using sounddevice</span><pre><span></span><code><span class="kn">from</span> <span class="nn">src.main</span> <span class="kn">import</span> <span class="n">AudioPlayer</span>
+
+<span class="n">player</span> <span class="o">=</span> <span class="n">AudioPlayer</span><span class="p">(</span><span class="s2">&quot;path/to/your/audio_file&quot;</span><span class="p">,</span> <span class="s2">&quot;sounddevice&quot;</span><span class="p">)</span>
+<span class="n">player</span><span class="o">.</span><span class="n">play</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">Play audio using pygame</span><pre><span></span><code><span class="kn">from</span> <span class="nn">src.main</span> <span class="kn">import</span> <span class="n">AudioPlayer</span>
+
+<span class="n">player</span> <span class="o">=</span> <span class="n">AudioPlayer</span><span class="p">(</span><span class="s2">&quot;path/to/your/audio_file&quot;</span><span class="p">,</span> <span class="s2">&quot;pygame&quot;</span><span class="p">)</span>
+<span class="n">player</span><span class="o">.</span><span class="n">play</span><span class="p">()</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="pause-audio">Pause Audio</h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">All</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">Pause audio playback</span><pre><span></span><code><span class="kn">from</span> <span class="nn">src.main</span> <span class="kn">import</span> <span class="n">AudioPlayer</span>
+<span class="o">...</span>
+<span class="n">player</span><span class="o">.</span><span class="n">pause</span><span class="p">()</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="resume-unpause-audio">Resume / Unpause Audio</h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">All</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">Resume audio playback</span><pre><span></span><code><span class="kn">from</span> <span class="nn">src.main</span> <span class="kn">import</span> <span class="n">AudioPlayer</span>
+<span class="o">...</span>
+<span class="n">player</span><span class="o">.</span><span class="n">play</span><span class="p">()</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="stop-audio">Stop Audio</h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">All</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">Stop audio playback</span><pre><span></span><code><span class="kn">from</span> <span class="nn">src.main</span> <span class="kn">import</span> <span class="n">AudioPlayer</span>
+<span class="o">...</span>
+<span class="n">player</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="position">Position</h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Get</label><label for="__tabbed_5_2">Set</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">Get current position in audio</span><pre><span></span><code><span class="kn">from</span> <span class="nn">src.main</span> <span class="kn">import</span> <span class="n">AudioPlayer</span>
+<span class="o">...</span>
+<span class="n">current_position</span> <span class="o">=</span> <span class="n">player</span><span class="o">.</span><span class="n">position</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">current_position</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">Set current position in audio</span><pre><span></span><code><span class="kn">from</span> <span class="nn">src.main</span> <span class="kn">import</span> <span class="n">AudioPlayer</span>
+<span class="o">...</span>
+<span class="n">new_position</span> <span class="o">=</span> <span class="mi">60</span>
+<span class="n">player</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">new_position</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="volume">Volume</h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Get</label><label for="__tabbed_6_2">Set</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">Get current volume</span><pre><span></span><code><span class="kn">from</span> <span class="nn">src.main</span> <span class="kn">import</span> <span class="n">AudioPlayer</span>
+<span class="o">...</span>
+<span class="n">current_volume</span> <span class="o">=</span> <span class="n">player</span><span class="o">.</span><span class="n">volume</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">current_volume</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">Set current volume</span><pre><span></span><code><span class="kn">from</span> <span class="nn">src.main</span> <span class="kn">import</span> <span class="n">AudioPlayer</span>
+<span class="o">...</span>
+<span class="n">new_volume</span> <span class="o">=</span> <span class="mf">0.25</span>
+<span class="n">player</span><span class="o">.</span><span class="n">volume</span> <span class="o">=</span> <span class="n">new_volume</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 
 
 
@@ -539,10 +771,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.tabs", "navigation.expand"], "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.expand"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      <script src="../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
       
     
   </body>
