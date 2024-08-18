@@ -63,8 +63,9 @@ class FfplayBackend:
         """
         volume = max(0, min(round(volume * 100), 100))
         self._volume = volume
-        self.pause()
-        self.unpause()
+        if self._is_busy:
+            self.pause()
+            self.unpause()
 
     def get_busy(self) -> bool:
         """
