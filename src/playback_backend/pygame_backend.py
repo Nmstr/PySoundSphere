@@ -13,6 +13,9 @@ class PygameBackend:
     def play(self, start_time: float = 0):
         """
         Play the song.
+
+        Parameters:
+            start_time (float): Position in the song in seconds.
         """
         pygame.mixer.music.play(start=start_time)
 
@@ -32,7 +35,7 @@ class PygameBackend:
         """
         Stop the song.
         """
-        pygame.mixer.music.stop()    
+        pygame.mixer.music.stop()
 
     def set_volume(self, volume: float):
         """
