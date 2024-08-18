@@ -2,14 +2,14 @@ import sounddevice as sd
 import soundfile as sf
 
 class SounddeviceBackend:
-    def __init__(self):
+    def __init__(self) -> None:
         self._data = None
         self._samplerate = None
         self._stream = None
         self._volume = 0.5
         self._is_busy = False
     
-    def load(self, file_path: str):
+    def load(self, file_path: str) -> None:
         """
         Load the song.
 
@@ -18,7 +18,7 @@ class SounddeviceBackend:
         """
         self._data, self._samplerate = sf.read(file_path, dtype='float32')
 
-    def pause(self):
+    def pause(self) -> None:
         """
         Pause the song.
         """
@@ -26,7 +26,7 @@ class SounddeviceBackend:
             self._stream.stop()
             self._is_busy = False
 
-    def unpause(self):
+    def unpause(self) -> None:
         """
         Unpause the song.
         """
@@ -34,7 +34,7 @@ class SounddeviceBackend:
             self._stream.start()
             self._is_busy = True
 
-    def play(self, start_time: float = 0):
+    def play(self, start_time: float = 0) -> None:
         """
         Play the song.
 
@@ -47,7 +47,7 @@ class SounddeviceBackend:
         self._stream.start()
         self._is_busy = True
 
-    def stop(self):
+    def stop(self) -> None:
         """
         Stop the song.
         """
@@ -57,7 +57,7 @@ class SounddeviceBackend:
             self._stream = None
             self._is_busy = False
 
-    def set_volume(self, new_volume: float):
+    def set_volume(self, new_volume: float) -> None:
         """
         Set the volume between 0 and 1.
 
@@ -72,7 +72,7 @@ class SounddeviceBackend:
         """
         return self._is_busy
     
-    def _audio_callback(self, outdata, frames, time, status):
+    def _audio_callback(self, outdata, frames, time, status) -> None:
         """
         Callback function for sounddevice.
         """

@@ -1,16 +1,16 @@
 import pygame
 
 class PygameBackend:
-    def __init__(self):
+    def __init__(self) -> None:
         pygame.mixer.init()
 
-    def load(self, file_path: str):
+    def load(self, file_path: str) -> None:
         """
         Load the song.
         """
         pygame.mixer.music.load(file_path)
 
-    def play(self, start_time: float = 0):
+    def play(self, start_time: float = 0) -> None:
         """
         Play the song.
 
@@ -19,25 +19,25 @@ class PygameBackend:
         """
         pygame.mixer.music.play(start=start_time)
 
-    def pause(self):
+    def pause(self) -> None:
         """
         Pause the song.
         """
         pygame.mixer.music.pause()
 
-    def unpause(self):
+    def unpause(self) -> None:
         """
         Unpause the song.
         """
         pygame.mixer.music.unpause()
 
-    def stop(self):
+    def stop(self) -> None:
         """
         Stop the song.
         """
         pygame.mixer.music.stop()
 
-    def set_volume(self, volume: float):
+    def set_volume(self, volume: float) -> None:
         """
         Set the volume between 0 and 1.
 
