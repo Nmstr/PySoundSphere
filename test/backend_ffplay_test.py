@@ -12,6 +12,7 @@ def test_audio_player_play(audio_file: str) -> None:
     player.play()
     assert player._playback_backend.get_busy() == True
     assert player._is_paused == False
+    player.stop()
 
 def test_audio_player_pause(audio_file: str) -> None:
     player = AudioPlayer(audio_file, 'ffplay')
@@ -31,6 +32,7 @@ def test_audio_player_position(audio_file: str) -> None:
     player = AudioPlayer(audio_file, 'ffplay')
     player.play()
     assert player.position > 0
+    player.stop()
 
 def test_audio_player_volume(audio_file: str) -> None:
     player = AudioPlayer(audio_file, 'ffplay')
@@ -44,3 +46,4 @@ def test_audio_player_volume_running(audio_file: str) -> None:
     assert player.volume == 1.0
     player.volume = 0.5
     assert player.volume == 0.5
+    player.stop()
