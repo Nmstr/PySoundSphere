@@ -16,6 +16,14 @@
     player.play()
     ```
 
+=== "ffplay"
+    ```python title="Play audio using ffplay"
+    from src.main import AudioPlayer
+
+    player = AudioPlayer("path/to/your/audio_file", "ffplay")
+    player.play()
+    ```
+
 ## Pause Audio
 
 === "All"
