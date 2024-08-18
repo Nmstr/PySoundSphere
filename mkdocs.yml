@@ -32,3 +32,4 @@ nav:
     - 'General': 'backends/general.md'
     - 'Sounddevice': 'backends/sounddevice.md'
     - 'Pygame': 'backends/pygame.md'
+    - 'Ffplay': 'backends/ffplay.md'
