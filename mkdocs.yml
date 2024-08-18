@@ -1,0 +1,34 @@
+site_name: PySoundSphere
+site_url: https://nmstr.github.io/PySoundSphere/
+theme:
+  name: 'material'
+  features:
+    - navigation.tabs
+    - navigation.expand
+  palette:
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    - scheme: default
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+
+markdown_extensions:
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/your-repo
+
+nav:
+  - Home: 'index.md'
+  - Usage: 'usage.md'
+  - 'Playback Backends':
+    - 'General': 'backends/general.md'
+    - 'Sounddevice': 'backends/sounddevice.md'
+    - 'Pygame': 'backends/pygame.md'
