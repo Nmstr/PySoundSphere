@@ -489,6 +489,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ffplay/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ffplay
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -558,9 +579,9 @@
 <h1 id="playback-backends">Playback Backends</h1>
 <hr />
 <h2 id="what-are-playback-backends">What are playback backends?</h2>
-<p>Playback backends determine which libraries will be used to actually play the sounds. PySoundSphere currently supports <code>sounddevice</code> and <code>pygame</code>, with plans to later add support for <code>PyAudio</code> and <code>ffplay</code>. Each backend has different requirements.</p>
+<p>Playback backends determine which libraries will be used to actually play the sounds. PySoundSphere currently supports <code>sounddevice</code>, <code>pygame</code> and <code>ffplay</code>, with plans to later add support for <code>PyAudio</code> as well. Each backend has different requirements and different advantages/disadvantages.</p>
 <h2 id="which-one-should-i-use">Which one should I use?</h2>
-<p>This depends on your specific use case. If you are already using any of the required libraries, it will probably be best to go with that backend. For example, if your application already uses pygame, you should go with the pygame backend.</p>
+<p>Generally it is recommended to use <code>sounddevice</code>. If you encounter problems with it or you already use <code>pygame</code> somewhere in your project, it might be better to use that instead. <code>ffplay</code> is only meant as a fallback when nothing else works and thus should be avoided. There is more information on its dedicated <a href="../ffplay">page</a>.</p>
 
 
 

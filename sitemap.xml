@@ -11,6 +11,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://nmstr.github.io/PySoundSphere/backends/ffplay/</loc>
+         <lastmod>2024-08-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://nmstr.github.io/PySoundSphere/backends/general/</loc>
          <lastmod>2024-08-18</lastmod>
          <changefreq>daily</changefreq>
