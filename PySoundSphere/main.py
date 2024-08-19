@@ -1,14 +1,22 @@
 from .playback_backend.backend_loader import load_backend
 import time
+import os
 
 class AudioPlayer:
-    def __init__(self, _file_path: str, playback_backend) -> None:
+    def __init__(self, playback_backend) -> None:
         self._playback_backend = load_backend(playback_backend)
-        self._file_path = _file_path
         self._is_paused = False
         self._start_time = 0
         self._pause_time = 0
         self._volume = 1.0
+
+    def load(self, file_path: str) -> None:
+        """
+        Load the song.
+        """
+        if not os.path.exists(file_path):
+            raise ValueError(f'File "{file_path}" does not exist.')
+        self._file_path = file_path
 
     def play(self) -> None:
         """
