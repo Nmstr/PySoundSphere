@@ -1,3 +1,19 @@
+## Getting started.
+
+The following code is an example to get some audio playback started.
+
+```python title="Getting it working"
+import PySoundSphere
+import time
+
+player = PySoundSphere.AudioPlayer("sounddevice")
+player.load("path/to/your/audio_file")
+player.volume = 0.025
+player.play()
+
+time.sleep(10)
+```
+
 ## Choosing a backend
 
 Make sure to have the backend you choose installed. Further instructions can be found [here](../backends/general) and [here](../).
@@ -5,26 +21,34 @@ Make sure to have the backend you choose installed. Further instructions can be 
 === "Sounddevice"
     ```python title="Choose the sounddevice backend"
     import PySoundSphere
-    player = PySoundSphere.AudioPlayer("path/to/your/audio_file", "sounddevice")
+    player = PySoundSphere.AudioPlayer("sounddevice")
     ```
 
 === "Pygame"
     ```python title="Choose the pygame backend"
     import PySoundSphere
-    player = PySoundSphere.AudioPlayer("path/to/your/audio_file", "pygame")
+    player = PySoundSphere.AudioPlayer("pygame")
     ```
 
 === "ffplay"
     ```python title="Choose the ffplay backend"
     import PySoundSphere
-    player = PySoundSphere.AudioPlayer("path/to/your/audio_file", "ffplay")
+    player = PySoundSphere.AudioPlayer("ffplay")
     ```
+
+## Load Audio
+
+```python title="Load audio"
+import PySoundSphere
+...  # A backend needs to be chosen somewhere here
+player.load("path/to/your/audio_file")
+```
 
 ## Play Audio
 
-```python title="Play audio using sounddevice"
+```python title="Play audio"
 import PySoundSphere
-...
+...  # The audio must have been loaded somewhere here
 player.play()
 ...
 # PySoundSphere will not play audio if your script ends immediately. 

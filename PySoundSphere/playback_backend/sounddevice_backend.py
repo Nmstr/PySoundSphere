@@ -4,6 +4,7 @@ import soundfile as sf
 class SounddeviceBackend:
     def __init__(self) -> None:
         self._data = None
+        self._original_data = None
         self._samplerate = None
         self._stream = None
         self._volume = 0.5
@@ -16,7 +17,7 @@ class SounddeviceBackend:
         Parameters:
             file_path (str): Path to the song.
         """
-        self._data, self._samplerate = sf.read(file_path, dtype='float32')
+        self._original_data, self._samplerate = sf.read(file_path, dtype='float32')
 
     def pause(self) -> None:
         """
@@ -42,7 +43,7 @@ class SounddeviceBackend:
             start_time (float): Position in the song in seconds.
         """
         start_frame = int(start_time * self._samplerate)
-        self._data = self._data[start_frame:]
+        self._data = self._original_data[start_frame:]
         self._stream = sd.OutputStream(callback=self._audio_callback, samplerate=self._samplerate, channels=self._data.shape[1])
         self._stream.start()
         self._is_busy = True
