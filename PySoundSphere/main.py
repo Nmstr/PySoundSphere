@@ -26,6 +26,8 @@ class AudioPlayer:
         if self._is_paused:
             self._playback_backend.unpause()
             self._is_paused = False
+        elif self._playback_backend.get_busy():
+            raise RuntimeError('Audio is already playing.')
         else:
             if not self._file_path:
                 raise ValueError('No audio file loaded.')
