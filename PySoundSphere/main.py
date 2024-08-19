@@ -9,7 +9,7 @@ class AudioPlayer:
         self._is_paused = False
         self._start_time = 0
         self._pause_time = 0
-        self._volume = 1.0
+        self._volume = 0.5
         self._paused_at = 0
         self._paused_seconds = 0
 
