@@ -5,6 +5,7 @@ import os
 class AudioPlayer:
     def __init__(self, playback_backend) -> None:
         self._playback_backend = load_backend(playback_backend)
+        self._file_path = None
         self._is_paused = False
         self._start_time = 0
         self._pause_time = 0
@@ -26,6 +27,8 @@ class AudioPlayer:
             self._playback_backend.unpause()
             self._is_paused = False
         else:
+            if not self._file_path:
+                raise ValueError('No audio file loaded.')
             self._playback_backend.load(self._file_path)
             self._playback_backend.play()
             self._start_time = time.time()
