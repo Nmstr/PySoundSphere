@@ -1,61 +1,67 @@
-## Play Audio
+## Choosing a backend
+
+Make sure to have the backend you choose installed. Further instructions can be found [here](../backends/general) and [here](../).
 
 === "Sounddevice"
-    ```python title="Play audio using sounddevice"
-    from src.main import AudioPlayer
-
-    player = AudioPlayer("path/to/your/audio_file", "sounddevice")
-    player.play()
+    ```python title="Choose the sounddevice backend"
+    import PySoundSphere
+    player = PySoundSphere.AudioPlayer("path/to/your/audio_file", "sounddevice")
     ```
 
 === "Pygame"
-    ```python title="Play audio using pygame"
-    from src.main import AudioPlayer
-
-    player = AudioPlayer("path/to/your/audio_file", "pygame")
-    player.play()
+    ```python title="Choose the pygame backend"
+    import PySoundSphere
+    player = PySoundSphere.AudioPlayer("path/to/your/audio_file", "pygame")
     ```
 
 === "ffplay"
-    ```python title="Play audio using ffplay"
-    from src.main import AudioPlayer
-
-    player = AudioPlayer("path/to/your/audio_file", "ffplay")
-    player.play()
+    ```python title="Choose the ffplay backend"
+    import PySoundSphere
+    player = PySoundSphere.AudioPlayer("path/to/your/audio_file", "ffplay")
     ```
+
+## Play Audio
+
+```python title="Play audio using sounddevice"
+import PySoundSphere
+...
+player.play()
+...
+# PySoundSphere will not play audio if your script ends immediately. 
+# In the case it does, uncomment the following:
+# import time
+# time.sleep(60)
+```
 
 ## Pause Audio
 
-=== "All"
-    ```python title="Pause audio playback"
-    from src.main import AudioPlayer
-    ...
-    player.pause()
-    ```
+```python title="Pause audio playback"
+import PySoundSphere
+...
+player.pause()
+```
 
 ## Resume / Unpause Audio
 
-=== "All"
-    ```python title="Resume audio playback"
-    from src.main import AudioPlayer
-    ...
-    player.play()
-    ```
+```python title="Resume audio playback"
+import PySoundSphere
+...
+player.play()
+```
 
 ## Stop Audio
 
-=== "All"
-    ```python title="Stop audio playback"
-    from src.main import AudioPlayer
-    ...
-    player.stop()
-    ```
+```python title="Stop audio playback"
+import PySoundSphere
+...
+player.stop()
+```
 
 ## Position
 
 === "Get"
     ```python title="Get current position in audio"
-    from src.main import AudioPlayer
+    import PySoundSphere
     ...
     current_position = player.position
     print(current_position)
@@ -63,7 +69,7 @@
 
 === "Set"
     ```python title="Set current position in audio"
-    from src.main import AudioPlayer
+    import PySoundSphere
     ...
     new_position = 60
     player.position = new_position
@@ -73,7 +79,7 @@
 
 === "Get"
     ```python title="Get current volume"
-    from src.main import AudioPlayer
+    import PySoundSphere
     ...
     current_volume = player.volume
     print(current_volume)
@@ -81,7 +87,7 @@
 
 === "Set"
     ```python title="Set current volume"
-    from src.main import AudioPlayer
+    import PySoundSphere
     ...
     new_volume = 0.25
     player.volume = new_volume
