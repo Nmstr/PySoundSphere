@@ -88,5 +88,7 @@ class AudioPlayer:
 
     @volume.setter
     def volume(self, volume: float) -> None:
+        if not isinstance(volume, float):
+            raise TypeError('Volume must be a float.')
         self._playback_backend.set_volume(volume)
         self._volume = volume
