@@ -10,6 +10,8 @@ class AudioPlayer:
         self._start_time = 0
         self._pause_time = 0
         self._volume = 1.0
+        self._paused_at = 0
+        self._paused_seconds = 0
 
     def load(self, file_path: str) -> None:
         """
@@ -25,6 +27,7 @@ class AudioPlayer:
         """
         if self._is_paused:
             self._playback_backend.unpause()
+            self._paused_seconds += time.time() - self._paused_at
             self._is_paused = False
         elif self._playback_backend.get_busy():
             raise RuntimeError('Audio is already playing.')
@@ -41,7 +44,8 @@ class AudioPlayer:
         """
         if self._playback_backend.get_busy():
             self._playback_backend.pause()
-            self._pause_time = time.time() - self._start_time
+            self._pause_time = time.time() - self._start_time - self._paused_seconds
+            self._paused_at = time.time()
             self._is_paused = True
 
     def stop(self) -> None:
@@ -61,7 +65,7 @@ class AudioPlayer:
         if self._is_paused:
             return self._pause_time
         elif self._playback_backend.get_busy():
-            return time.time() - self._start_time
+            return time.time() - self._start_time - self._paused_seconds
         else:
             return 0
 
@@ -71,6 +75,7 @@ class AudioPlayer:
             self._playback_backend.stop()
             self._playback_backend.play(start_time=position)
             self._start_time = time.time() - position
+            self._paused_seconds = 0
             if self._is_paused:
                 self._playback_backend.pause()
 
