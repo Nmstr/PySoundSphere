@@ -1,4 +1,4 @@
-from src.main import AudioPlayer
+from PySoundSphere.main import AudioPlayer
 import pytest
 
 @pytest.fixture(params=['wav', 'mp3', 'flac'])
