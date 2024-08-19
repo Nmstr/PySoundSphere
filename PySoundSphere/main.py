@@ -3,7 +3,8 @@ import time
 import os
 
 class AudioPlayer:
-    def __init__(self, playback_backend) -> None:
+    def __init__(self, playback_backend, *, debug_allow_multiple_playbacks: bool = False) -> None:
+        self._debug_allow_multiple_playbacks = debug_allow_multiple_playbacks
         self._playback_backend = load_backend(playback_backend)
         self._file_path = None
         self._is_paused = False
@@ -29,7 +30,7 @@ class AudioPlayer:
             self._playback_backend.unpause()
             self._paused_seconds += time.time() - self._paused_at
             self._is_paused = False
-        elif self._playback_backend.get_busy():
+        elif self._playback_backend.get_busy() and not self._debug_allow_multiple_playbacks:
             raise RuntimeError('Audio is already playing.')
         else:
             if not self._file_path:
