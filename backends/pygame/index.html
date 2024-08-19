@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.31">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.32">
     
     
       
@@ -72,6 +72,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#installation" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -419,6 +424,17 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Pygame
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -428,6 +444,41 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -480,6 +531,32 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -495,12 +572,24 @@
 
   <h1>Pygame</h1>
 
-<p>The pygame backend only needs <code>pygame</code> in order to run. Run the following command to install it.</p>
-<div class="highlight"><span class="filename">Install requirements for pygame backend</span><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>pygame
+<h2 id="installation">Installation</h2>
+<p>The pygame backend is part of the optional dependency group <code>pygame-backend</code>. Either install it or install the required libraries manually.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Automatic</label><label for="__tabbed_1_2">Manual</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">Install with the group</span><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>PySoundSphere<span class="o">[</span>pygame-backend<span class="o">]</span>
 </code></pre></div>
-<p>After that you can set up your backend like in the following.</p>
-<div class="highlight"><span class="filename">Setup pygame backend</span><pre><span></span><code><span class="kn">from</span> <span class="nn">src.main</span> <span class="kn">import</span> <span class="n">AudioPlayer</span>
-<span class="n">player</span> <span class="o">=</span> <span class="n">AudioPlayer</span><span class="p">(</span><span class="s2">&quot;path/to/your/audio_file&quot;</span><span class="p">,</span> <span class="s2">&quot;pygame&quot;</span><span class="p">)</span>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">Install the libraries manually</span><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>PySoundSphere<span class="w"> </span>pygame
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="usage">Usage</h2>
+<p>After that you can use the backend like in the following.</p>
+<div class="highlight"><span class="filename">Setup pygame backend</span><pre><span></span><code><span class="kn">import</span> <span class="nn">PySoundSphere</span>
+<span class="n">player</span> <span class="o">=</span> <span class="n">PySoundSphere</span><span class="o">.</span><span class="n">AudioPlayer</span><span class="p">(</span><span class="s2">&quot;path/to/your/audio_file&quot;</span><span class="p">,</span> <span class="s2">&quot;pygame&quot;</span><span class="p">)</span>
 </code></pre></div>
 
 
@@ -566,7 +655,7 @@
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.expand"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.471ce7a9.min.js"></script>
       
     
   </body>

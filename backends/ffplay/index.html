@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.31">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.32">
     
     
       
@@ -501,6 +501,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -565,6 +583,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -586,10 +622,12 @@
 <h2 id="this-backend-should-be-seen-as-a-fallback-backend">This backend should be seen as a fallback backend.</h2>
 <h3 id="due-to-limitations-in-ffplay-volume-can-not-be-changed-seamlessly-resulting-in-a-minor-stutter">Due to limitations in ffplay volume can not be changed seamlessly, resulting in a minor stutter.</h3>
 <hr />
-<p>The ffplay backend only needs <code>ffplay</code>, which is part of ffmpeg.</p>
-<p>It can be used like this.</p>
-<div class="highlight"><span class="filename">Setup ffplay backend</span><pre><span></span><code><span class="kn">from</span> <span class="nn">src.main</span> <span class="kn">import</span> <span class="n">AudioPlayer</span>
-<span class="n">player</span> <span class="o">=</span> <span class="n">AudioPlayer</span><span class="p">(</span><span class="s2">&quot;path/to/your/audio_file&quot;</span><span class="p">,</span> <span class="s2">&quot;ffplay&quot;</span><span class="p">)</span>
+<h2 id="installation">Installation</h2>
+<p>On most systems no further installation is required. The ffplay backend only needs <code>ffplay</code>, which is part of ffmpeg. So make sure to have ffmpeg installed.</p>
+<h2 id="usage">Usage</h2>
+<p>The backend can be used like in the following.</p>
+<div class="highlight"><span class="filename">Setup ffplay backend</span><pre><span></span><code><span class="kn">import</span> <span class="nn">PySoundSphere</span>
+<span class="n">player</span> <span class="o">=</span> <span class="n">PySoundSphere</span><span class="o">.</span><span class="n">AudioPlayer</span><span class="p">(</span><span class="s2">&quot;path/to/your/audio_file&quot;</span><span class="p">,</span> <span class="s2">&quot;ffplay&quot;</span><span class="p">)</span>
 </code></pre></div>
 
 
@@ -655,7 +693,7 @@
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.expand"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.471ce7a9.min.js"></script>
       
     
   </body>

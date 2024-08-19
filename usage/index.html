@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.31">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.32">
     
     
       
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#play-audio" class="md-skip">
+        <a href="#choosing-a-backend" class="md-skip">
           Skip to content
         </a>
       
@@ -354,6 +354,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#choosing-a-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      Choosing a backend
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#play-audio" class="md-nav__link">
     <span class="md-ellipsis">
       Play Audio
@@ -571,6 +580,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#choosing-a-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      Choosing a backend
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#play-audio" class="md-nav__link">
     <span class="md-ellipsis">
       Play Audio
@@ -641,77 +659,64 @@
 
   <h1>Usage</h1>
 
-<h2 id="play-audio">Play Audio</h2>
+<h2 id="choosing-a-backend">Choosing a backend</h2>
+<p>Make sure to have the backend you choose installed. Further instructions can be found <a href="../backends/general">here</a> and <a href="../">here</a>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Sounddevice</label><label for="__tabbed_1_2">Pygame</label><label for="__tabbed_1_3">ffplay</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">Play audio using sounddevice</span><pre><span></span><code><span class="kn">from</span> <span class="nn">src.main</span> <span class="kn">import</span> <span class="n">AudioPlayer</span>
-
-<span class="n">player</span> <span class="o">=</span> <span class="n">AudioPlayer</span><span class="p">(</span><span class="s2">&quot;path/to/your/audio_file&quot;</span><span class="p">,</span> <span class="s2">&quot;sounddevice&quot;</span><span class="p">)</span>
-<span class="n">player</span><span class="o">.</span><span class="n">play</span><span class="p">()</span>
+<div class="highlight"><span class="filename">Choose the sounddevice backend</span><pre><span></span><code><span class="kn">import</span> <span class="nn">PySoundSphere</span>
+<span class="n">player</span> <span class="o">=</span> <span class="n">PySoundSphere</span><span class="o">.</span><span class="n">AudioPlayer</span><span class="p">(</span><span class="s2">&quot;path/to/your/audio_file&quot;</span><span class="p">,</span> <span class="s2">&quot;sounddevice&quot;</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">Play audio using pygame</span><pre><span></span><code><span class="kn">from</span> <span class="nn">src.main</span> <span class="kn">import</span> <span class="n">AudioPlayer</span>
-
-<span class="n">player</span> <span class="o">=</span> <span class="n">AudioPlayer</span><span class="p">(</span><span class="s2">&quot;path/to/your/audio_file&quot;</span><span class="p">,</span> <span class="s2">&quot;pygame&quot;</span><span class="p">)</span>
-<span class="n">player</span><span class="o">.</span><span class="n">play</span><span class="p">()</span>
+<div class="highlight"><span class="filename">Choose the pygame backend</span><pre><span></span><code><span class="kn">import</span> <span class="nn">PySoundSphere</span>
+<span class="n">player</span> <span class="o">=</span> <span class="n">PySoundSphere</span><span class="o">.</span><span class="n">AudioPlayer</span><span class="p">(</span><span class="s2">&quot;path/to/your/audio_file&quot;</span><span class="p">,</span> <span class="s2">&quot;pygame&quot;</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">Play audio using ffplay</span><pre><span></span><code><span class="kn">from</span> <span class="nn">src.main</span> <span class="kn">import</span> <span class="n">AudioPlayer</span>
-
-<span class="n">player</span> <span class="o">=</span> <span class="n">AudioPlayer</span><span class="p">(</span><span class="s2">&quot;path/to/your/audio_file&quot;</span><span class="p">,</span> <span class="s2">&quot;ffplay&quot;</span><span class="p">)</span>
-<span class="n">player</span><span class="o">.</span><span class="n">play</span><span class="p">()</span>
+<div class="highlight"><span class="filename">Choose the ffplay backend</span><pre><span></span><code><span class="kn">import</span> <span class="nn">PySoundSphere</span>
+<span class="n">player</span> <span class="o">=</span> <span class="n">PySoundSphere</span><span class="o">.</span><span class="n">AudioPlayer</span><span class="p">(</span><span class="s2">&quot;path/to/your/audio_file&quot;</span><span class="p">,</span> <span class="s2">&quot;ffplay&quot;</span><span class="p">)</span>
 </code></pre></div>
 </div>
 </div>
 </div>
+<h2 id="play-audio">Play Audio</h2>
+<div class="highlight"><span class="filename">Play audio using sounddevice</span><pre><span></span><code><span class="kn">import</span> <span class="nn">PySoundSphere</span>
+<span class="o">...</span>
+<span class="n">player</span><span class="o">.</span><span class="n">play</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># PySoundSphere will not play audio if your script ends immediately. </span>
+<span class="c1"># In the case it does, uncomment the following:</span>
+<span class="c1"># import time</span>
+<span class="c1"># time.sleep(60)</span>
+</code></pre></div>
 <h2 id="pause-audio">Pause Audio</h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">All</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">Pause audio playback</span><pre><span></span><code><span class="kn">from</span> <span class="nn">src.main</span> <span class="kn">import</span> <span class="n">AudioPlayer</span>
+<div class="highlight"><span class="filename">Pause audio playback</span><pre><span></span><code><span class="kn">import</span> <span class="nn">PySoundSphere</span>
 <span class="o">...</span>
 <span class="n">player</span><span class="o">.</span><span class="n">pause</span><span class="p">()</span>
 </code></pre></div>
-</div>
-</div>
-</div>
 <h2 id="resume-unpause-audio">Resume / Unpause Audio</h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">All</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">Resume audio playback</span><pre><span></span><code><span class="kn">from</span> <span class="nn">src.main</span> <span class="kn">import</span> <span class="n">AudioPlayer</span>
+<div class="highlight"><span class="filename">Resume audio playback</span><pre><span></span><code><span class="kn">import</span> <span class="nn">PySoundSphere</span>
 <span class="o">...</span>
 <span class="n">player</span><span class="o">.</span><span class="n">play</span><span class="p">()</span>
 </code></pre></div>
-</div>
-</div>
-</div>
 <h2 id="stop-audio">Stop Audio</h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">All</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><span class="filename">Stop audio playback</span><pre><span></span><code><span class="kn">from</span> <span class="nn">src.main</span> <span class="kn">import</span> <span class="n">AudioPlayer</span>
+<div class="highlight"><span class="filename">Stop audio playback</span><pre><span></span><code><span class="kn">import</span> <span class="nn">PySoundSphere</span>
 <span class="o">...</span>
 <span class="n">player</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
 </code></pre></div>
-</div>
-</div>
-</div>
 <h2 id="position">Position</h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Get</label><label for="__tabbed_5_2">Set</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Get</label><label for="__tabbed_2_2">Set</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">Get current position in audio</span><pre><span></span><code><span class="kn">from</span> <span class="nn">src.main</span> <span class="kn">import</span> <span class="n">AudioPlayer</span>
+<div class="highlight"><span class="filename">Get current position in audio</span><pre><span></span><code><span class="kn">import</span> <span class="nn">PySoundSphere</span>
 <span class="o">...</span>
 <span class="n">current_position</span> <span class="o">=</span> <span class="n">player</span><span class="o">.</span><span class="n">position</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">current_position</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">Set current position in audio</span><pre><span></span><code><span class="kn">from</span> <span class="nn">src.main</span> <span class="kn">import</span> <span class="n">AudioPlayer</span>
+<div class="highlight"><span class="filename">Set current position in audio</span><pre><span></span><code><span class="kn">import</span> <span class="nn">PySoundSphere</span>
 <span class="o">...</span>
 <span class="n">new_position</span> <span class="o">=</span> <span class="mi">60</span>
 <span class="n">player</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">new_position</span>
@@ -720,17 +725,17 @@
 </div>
 </div>
 <h2 id="volume">Volume</h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Get</label><label for="__tabbed_6_2">Set</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Get</label><label for="__tabbed_3_2">Set</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">Get current volume</span><pre><span></span><code><span class="kn">from</span> <span class="nn">src.main</span> <span class="kn">import</span> <span class="n">AudioPlayer</span>
+<div class="highlight"><span class="filename">Get current volume</span><pre><span></span><code><span class="kn">import</span> <span class="nn">PySoundSphere</span>
 <span class="o">...</span>
 <span class="n">current_volume</span> <span class="o">=</span> <span class="n">player</span><span class="o">.</span><span class="n">volume</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">current_volume</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">Set current volume</span><pre><span></span><code><span class="kn">from</span> <span class="nn">src.main</span> <span class="kn">import</span> <span class="n">AudioPlayer</span>
+<div class="highlight"><span class="filename">Set current volume</span><pre><span></span><code><span class="kn">import</span> <span class="nn">PySoundSphere</span>
 <span class="o">...</span>
 <span class="n">new_volume</span> <span class="o">=</span> <span class="mf">0.25</span>
 <span class="n">player</span><span class="o">.</span><span class="n">volume</span> <span class="o">=</span> <span class="n">new_volume</span>
@@ -802,7 +807,7 @@
     <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.expand"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      <script src="../assets/javascripts/bundle.471ce7a9.min.js"></script>
       
     
   </body>
