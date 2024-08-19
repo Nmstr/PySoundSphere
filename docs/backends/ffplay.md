@@ -5,11 +5,15 @@
 
 ---
 
-The ffplay backend only needs `ffplay`, which is part of ffmpeg.
+## Installation
 
-It can be used like this.
+On most systems no further installation is required. The ffplay backend only needs `ffplay`, which is part of ffmpeg. So make sure to have ffmpeg installed.
+
+## Usage
+
+The backend can be used like in the following.
 
 ```python title="Setup ffplay backend"
-from src.main import AudioPlayer
-player = AudioPlayer("path/to/your/audio_file", "ffplay")
+import PySoundSphere
+player = PySoundSphere.AudioPlayer("path/to/your/audio_file", "ffplay")
 ```
