@@ -1,4 +1,5 @@
 from .playback_backend.backend_loader import load_backend
+import threading
 import time
 import os
 
@@ -6,6 +7,7 @@ class AudioPlayer:
     def __init__(self, playback_backend, *, debug_allow_multiple_playbacks: bool = False) -> None:
         self._debug_allow_multiple_playbacks = debug_allow_multiple_playbacks
         self._playback_backend = load_backend(playback_backend)
+        self._callback_function = None
         self._file_path = None
         self._is_paused = False
         self._start_time = 0
@@ -38,6 +40,24 @@ class AudioPlayer:
             self._playback_backend.load(self._file_path)
             self._playback_backend.play()
             self._start_time = time.time()
+            self._start_monitoring()
+
+    def _start_monitoring(self):
+        """
+        Start a separate thread to monitor the playback status.
+        """
+        self._monitor_thread = threading.Thread(target=self._monitor_playback)
+        self._monitor_thread.daemon = True
+        self._monitor_thread.start()
+
+    def _monitor_playback(self):
+        """
+        Monitor the playback status and trigger a callback when the song finishes.
+        """
+        while self._playback_backend.get_busy() or self._is_paused:
+            time.sleep(0.1)
+        if self._callback_function is not None:
+            self._callback_function()
 
     def pause(self) -> None:
         """
@@ -57,6 +77,12 @@ class AudioPlayer:
             self._playback_backend.stop()
             self._is_paused = False
             self._pause_time = 0
+
+    def set_callback_function(self, function = None) -> None:
+        """
+        Sets the callback function.
+        """
+        self._callback_function = function
 
     @property
     def position(self) -> float:

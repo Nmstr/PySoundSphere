@@ -83,6 +83,7 @@ class SounddeviceBackend:
             if len(self._data) < frames:
                 outdata[:len(self._data)] = self._volume * self._data
                 outdata[len(self._data):] = 0
+                self._is_busy = False
             else:
                 outdata[:] = self._volume * self._data[:frames]
                 self._data = self._data[frames:]

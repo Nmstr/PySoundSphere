@@ -116,3 +116,16 @@ player.stop()
     new_volume = 0.25
     player.volume = new_volume
     ```
+
+## Callback function
+
+A callback function is a function that gets executed once the current audio file finished playing.
+```python title="Set a callback function"
+import PySoundSphere
+...
+def on_audio_finished():
+    # Your logic goes here
+    print("Done!")
+    
+player.set_callback_function(on_audio_finished)
+```
