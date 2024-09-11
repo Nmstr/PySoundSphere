@@ -1,4 +1,5 @@
 from .playback_backend.backend_loader import load_backend
+import threading
 import time
 import os
 
@@ -38,6 +39,34 @@ class AudioPlayer:
             self._playback_backend.load(self._file_path)
             self._playback_backend.play()
             self._start_time = time.time()
+            self._start_monitoring()
+
+    def _start_monitoring(self):
+        """
+        Start a separate thread to monitor the playback status.
+        """
+        self._monitor_thread = threading.Thread(target=self._monitor_playback)
+        self._monitor_thread.daemon = True
+        self._monitor_thread.start()
+
+    def _monitor_playback(self):
+        """
+        Monitor the playback status and trigger a callback when the song finishes.
+        """
+        while self._playback_backend.get_busy() or self._is_paused:
+            print(self._playback_backend.get_busy())
+            print(self._is_paused)
+            time.sleep(0.5)
+            print("a")
+        print(self._playback_backend.get_busy())
+        print(self._is_paused)
+        self._on_finish()
+
+    def _on_finish(self):
+        """
+        Callback function to be executed when the song finishes.
+        """
+        print("Song finished playing!")
 
     def pause(self) -> None:
         """
