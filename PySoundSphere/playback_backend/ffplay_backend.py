@@ -1,13 +1,14 @@
 import subprocess
+import threading
 import time
 
 class FfplayBackend:
     def __init__(self) -> None:
         self._file_path = None
         self._playback_process = None
-        self._sond_started_at = 0
+        self._song_started_at = 0
         self._song_stopped_at = 0
-        self._sond_started_ahead = 0
+        self._song_started_ahead = 0
         self._volume = 5.0
         self._is_busy = False
 
@@ -24,12 +25,17 @@ class FfplayBackend:
         Parameters:
             start_time (float): Position in the song in seconds.
         """
-        self._sond_started_at = time.time()
+        self._song_started_at = time.time()
         self._song_started_ahead = start_time
         self._playback_process = subprocess.Popen(['ffplay', '-nodisp', '-autoexit', '-ss', str(start_time), '-volume', str(self._volume), self._file_path],
                                                   stdout=subprocess.DEVNULL,
                                                   stderr=subprocess.DEVNULL)
         self._is_busy = True
+        threading.Thread(target=self._playback_done).start()
+
+    def _playback_done(self):
+        self._playback_process.wait()
+        self._is_busy = False
 
     def pause(self) -> None:
         """
@@ -43,7 +49,7 @@ class FfplayBackend:
         """
         Unpause the song.
         """
-        start_time = self._song_stopped_at - self._sond_started_at + self._song_started_ahead
+        start_time = self._song_stopped_at - self._song_started_at + self._song_started_ahead
         self.play(start_time)
         self._is_busy = True
 
