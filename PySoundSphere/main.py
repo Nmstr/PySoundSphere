@@ -7,6 +7,15 @@ class AudioPlayer:
     def __init__(self, playback_backend, *,
                  debug_allow_multiple_playbacks: bool = False,
                  sounddevice_blocksize: int = 0) -> None:
+        """
+        Main AudioPlayer class to create a player object.
+
+        More Information: https://nmstr.github.io/PySoundSphere/
+
+        :param playback_backend: The backend to use for playback ("sounddevice", "pygame", "ffplay")
+        :param debug_allow_multiple_playbacks: If multiple playbacks should be allowed at the same time. This is used for tests and should be avoided in production.
+        :param sounddevice_blocksize: Sounddevice backend specific option to change the blocksize.
+        """
         self._debug_allow_multiple_playbacks = debug_allow_multiple_playbacks
         self._playback_backend = load_backend(playback_backend, sounddevice_blocksize)
         self._callback_function = None
