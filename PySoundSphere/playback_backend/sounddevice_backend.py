@@ -2,13 +2,14 @@ import sounddevice as sd
 import soundfile as sf
 
 class SounddeviceBackend:
-    def __init__(self) -> None:
+    def __init__(self, blocksize: int = 0) -> None:
         self._data = None
         self._original_data = None
         self._samplerate = None
         self._stream = None
         self._volume = 0.5
         self._is_busy = False
+        self._block_size = blocksize
     
     def load(self, file_path: str) -> None:
         """
@@ -44,7 +45,11 @@ class SounddeviceBackend:
         """
         start_frame = int(start_time * self._samplerate)
         self._data = self._original_data[start_frame:]
-        self._stream = sd.OutputStream(callback=self._audio_callback, samplerate=self._samplerate, channels=self._data.shape[1])
+        self._stream = sd.OutputStream(
+            callback=self._audio_callback,
+            samplerate=self._samplerate,
+            channels=self._data.shape[1],
+            blocksize=self._block_size)
         self._stream.start()
         self._is_busy = True
 
