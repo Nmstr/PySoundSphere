@@ -20,3 +20,8 @@ After that you can use the backend like in the following.
 import PySoundSphere
 player = PySoundSphere.AudioPlayer("pygame")
 ```
+View the [general usage](../../usage/) section for more information.
+
+## Backend specific options
+
+The pygame backend does not have any backend specific options.
