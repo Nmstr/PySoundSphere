@@ -18,5 +18,5 @@ After that you can use the backend like in the following.
 
 ```python title="Setup sounddevice backend"
 import PySoundSphere
-player = PySoundSphere.AudioPlayer("path/to/your/audio_file", "sounddevice")
+player = PySoundSphere.AudioPlayer("sounddevice")
 ```

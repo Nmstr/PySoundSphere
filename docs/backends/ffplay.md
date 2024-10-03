@@ -15,5 +15,5 @@ The backend can be used like in the following.
 
 ```python title="Setup ffplay backend"
 import PySoundSphere
-player = PySoundSphere.AudioPlayer("path/to/your/audio_file", "ffplay")
+player = PySoundSphere.AudioPlayer("ffplay")
 ```
