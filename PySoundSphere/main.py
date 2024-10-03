@@ -4,9 +4,11 @@ import time
 import os
 
 class AudioPlayer:
-    def __init__(self, playback_backend, *, debug_allow_multiple_playbacks: bool = False) -> None:
+    def __init__(self, playback_backend, *,
+                 debug_allow_multiple_playbacks: bool = False,
+                 sounddevice_blocksize: int = 0) -> None:
         self._debug_allow_multiple_playbacks = debug_allow_multiple_playbacks
-        self._playback_backend = load_backend(playback_backend)
+        self._playback_backend = load_backend(playback_backend, sounddevice_blocksize)
         self._callback_function = None
         self._file_path = None
         self._is_paused = False

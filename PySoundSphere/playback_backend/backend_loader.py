@@ -1,4 +1,4 @@
-def load_backend(backend_name: str) -> object:
+def load_backend(backend_name: str, sounddevice_blocksize: int = 0) -> object:
     """
     Load the backend.
 
@@ -7,6 +7,7 @@ def load_backend(backend_name: str) -> object:
         - sounddevice
         - pygame
         - ffplay
+        sounddevice_blocksize (int): The blocksize the sounddevice backend should use
 
     Returns:
         object: Backend object.
@@ -14,7 +15,7 @@ def load_backend(backend_name: str) -> object:
     if backend_name == "sounddevice":
         try:
             from .sounddevice_backend import SounddeviceBackend
-            return SounddeviceBackend()
+            return SounddeviceBackend(blocksize = sounddevice_blocksize)
         except ImportError as e:
             raise ValueError(f'Failed to load backend "{backend_name}" with error: "{e}". Is it installed?')
 
