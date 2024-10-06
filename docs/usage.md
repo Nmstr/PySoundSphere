@@ -100,6 +100,47 @@ player.stop()
     player.position = new_position
     ```
 
+## Played Time
+
+Played time is the time the current song has been playing for, with disregard to the current songs position.
+
+```python title="Get the time audio has played for"
+import PySoundSphere
+...
+played_time = player.played_time
+print(played_time)
+```
+
+It is important to distinguish played_time from position. The difference is made clear in the following example.
+
+=== "Played Time"
+    ```python title="Example using played time"
+    import PySoundSphere
+    import time
+    player = PySoundSphere.AudioPlayer("sounddevice")
+    player.load("path/to/your/audio_file")
+    player.play()
+    player.position = 10
+    time.sleep(1)
+
+    print(player.played_time)
+    # This will print 1
+    ```
+
+=== "Position"
+    ```python title="Example using position"
+    import PySoundSphere
+    import time
+    player = PySoundSphere.AudioPlayer("sounddevice")
+    player.load("path/to/your/audio_file")
+    player.play()
+    player.position = 10
+    time.sleep(1)
+
+    print(player.position)
+    # This will print 11
+    ```
+
 ## Volume
 
 === "Get"

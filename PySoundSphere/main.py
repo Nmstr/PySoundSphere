@@ -26,6 +26,8 @@ class AudioPlayer:
         self._volume = 0.5
         self._paused_at = 0
         self._paused_seconds = 0
+        self._started_song_at_time = 0
+        self._total_amount_seconds_paused = 0
 
     def load(self, file_path: str) -> None:
         """
@@ -42,6 +44,7 @@ class AudioPlayer:
         if self._is_paused:
             self._playback_backend.unpause()
             self._paused_seconds += time.time() - self._paused_at
+            self._total_amount_seconds_paused += self._paused_seconds
             self._is_paused = False
         elif self._playback_backend.get_busy() and not self._debug_allow_multiple_playbacks:
             raise RuntimeError('Audio is already playing.')
@@ -51,6 +54,8 @@ class AudioPlayer:
             self._playback_backend.load(self._file_path)
             self._playback_backend.play()
             self._start_time = time.time()
+            self._started_song_at_time = time.time()
+            self._total_amount_seconds_paused = 0
             self._start_monitoring()
 
     def _start_monitoring(self):
@@ -88,6 +93,7 @@ class AudioPlayer:
             self._playback_backend.stop()
         self._is_paused = False
         self._pause_time = 0
+        self._started_song_at_time = 0
 
     def set_callback_function(self, function = None) -> None:
         """
@@ -116,6 +122,19 @@ class AudioPlayer:
             self._paused_seconds = 0
             if self._is_paused:
                 self._playback_backend.pause()
+
+    @property
+    def played_time(self) -> float:
+        """
+        The time that audio as played for in seconds.
+        """
+        if self._is_paused:
+            paused_seconds = self._total_amount_seconds_paused + self._paused_seconds + (time.time() - self._paused_at)
+            return time.time() - self._started_song_at_time - paused_seconds
+        elif self._playback_backend.get_busy():
+            return time.time() - self._started_song_at_time - self._total_amount_seconds_paused
+        else:
+            return 0
 
     @property
     def volume(self) -> float:

@@ -1,5 +1,6 @@
 from PySoundSphere.main import AudioPlayer
 import pytest
+import time
 
 @pytest.fixture(params=['wav', 'mp3', 'flac'])
 def audio_file(request):
@@ -37,6 +38,28 @@ def test_audio_player_position(audio_file: str) -> None:
     player.play()
     assert player.position > 0
     player.stop()
+
+def test_audio_player_played_time_basic(audio_file: str) -> None:
+    player = AudioPlayer('ffplay', debug_allow_multiple_playbacks=True)
+    player.load(audio_file)
+    player.play()
+    assert player.played_time > 0
+
+def test_audio_player_played_time_with_pause(audio_file: str) -> None:
+    player = AudioPlayer('ffplay', debug_allow_multiple_playbacks=True)
+    player.load(audio_file)
+    player.play()
+    time.sleep(0.25)
+    player.pause()
+    time.sleep(0.25)
+    assert player.played_time < 0.45
+
+def test_audio_player_played_time_with_skip(audio_file: str) -> None:
+    player = AudioPlayer('ffplay', debug_allow_multiple_playbacks=True)
+    player.load(audio_file)
+    player.play()
+    player.position = 3
+    assert player.played_time < 1
 
 def test_audio_player_volume(audio_file: str) -> None:
     player = AudioPlayer('ffplay', debug_allow_multiple_playbacks=True)
