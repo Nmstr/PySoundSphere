@@ -23,7 +23,7 @@ markdown_extensions:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/your-repo
+      link: https://github.com/Nmstr/PySoundSphere
 
 nav:
   - Home: 'index.md'

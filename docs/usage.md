@@ -43,6 +43,7 @@ import PySoundSphere
 ...  # A backend needs to be chosen somewhere here
 player.load("path/to/your/audio_file")
 ```
+If audio playback is paused while a new song is being loaded, it must first be stopped for the new song to be played. Otherwise, the old song will resume playing the next time `play` is called.
 
 ## Play Audio
 
