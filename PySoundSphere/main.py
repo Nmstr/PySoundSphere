@@ -86,8 +86,8 @@ class AudioPlayer:
         """
         if self._playback_backend.get_busy():
             self._playback_backend.stop()
-            self._is_paused = False
-            self._pause_time = 0
+        self._is_paused = False
+        self._pause_time = 0
 
     def set_callback_function(self, function = None) -> None:
         """
