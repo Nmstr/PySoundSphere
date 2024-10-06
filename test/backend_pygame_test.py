@@ -1,7 +1,6 @@
-import time
-
 from PySoundSphere.main import AudioPlayer
 import pytest
+import time
 
 @pytest.fixture(params=['wav', 'mp3', 'flac'])
 def audio_file(request):
