@@ -53,6 +53,8 @@ class AudioPlayer:
                 raise ValueError('No audio file loaded.')
             self._playback_backend.load(self._file_path)
             self._playback_backend.play()
+            self._pause_time = 0
+            self._started_song_at_time = 0
             self._start_time = time.time()
             self._started_song_at_time = time.time()
             self._total_amount_seconds_paused = 0
@@ -92,8 +94,6 @@ class AudioPlayer:
         if self._playback_backend.get_busy():
             self._playback_backend.stop()
         self._is_paused = False
-        self._pause_time = 0
-        self._started_song_at_time = 0
 
     def set_callback_function(self, function = None) -> None:
         """
@@ -131,10 +131,8 @@ class AudioPlayer:
         if self._is_paused:
             paused_seconds = self._total_amount_seconds_paused + self._paused_seconds + (time.time() - self._paused_at)
             return time.time() - self._started_song_at_time - paused_seconds
-        elif self._playback_backend.get_busy():
-            return time.time() - self._started_song_at_time - self._total_amount_seconds_paused
         else:
-            return 0
+            return time.time() - self._started_song_at_time - self._total_amount_seconds_paused
 
     @property
     def volume(self) -> float:
