@@ -171,3 +171,4 @@ def on_audio_finished():
     
 player.set_callback_function(on_audio_finished)
 ```
+_* Callback functions are not supported by the [ffplay](../backends/ffplay) backend_

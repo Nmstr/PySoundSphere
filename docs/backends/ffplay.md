@@ -19,6 +19,10 @@ player = PySoundSphere.AudioPlayer("ffplay")
 ```
 View the [general usage](../../usage/) section for more information.
 
+## Missing features
+
+The ffplay backend currently does _not_ support callback functions
+
 ## Backend specific options
 
 The ffplay backend does not have any backend specific options.
