@@ -78,3 +78,13 @@ class FfplayBackend:
         Check if the song is playing.
         """
         return self._is_busy
+
+    def set_callback(self, function: callable) -> None:
+        """
+        Callback functions are not implemented for the ffplay backend.
+        This function just raises an error.
+
+        Parameters:
+            function (callable): This is here to make it fit with the other backends
+        """
+        raise NotImplementedError("Callback functions aren't supported by the ffplay backend. Please use another backend.")
