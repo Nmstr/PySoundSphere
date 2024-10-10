@@ -58,8 +58,8 @@ def test_audio_player_played_time_with_skip(audio_file: str) -> None:
     player = AudioPlayer('ffplay', debug_allow_multiple_playbacks=True)
     player.load(audio_file)
     player.play()
-    player.position = 10
-    assert player.played_time < 9
+    player.position = 4
+    assert player.played_time < 4
 
 def test_audio_player_volume(audio_file: str) -> None:
     player = AudioPlayer('ffplay', debug_allow_multiple_playbacks=True)
