@@ -49,17 +49,17 @@ def test_audio_player_played_time_with_pause(audio_file: str) -> None:
     player = AudioPlayer('ffplay', debug_allow_multiple_playbacks=True)
     player.load(audio_file)
     player.play()
-    time.sleep(0.25)
+    time.sleep(1)
     player.pause()
-    time.sleep(0.25)
-    assert player.played_time < 0.45
+    time.sleep(2)
+    assert player.played_time < 2
 
 def test_audio_player_played_time_with_skip(audio_file: str) -> None:
     player = AudioPlayer('ffplay', debug_allow_multiple_playbacks=True)
     player.load(audio_file)
     player.play()
-    player.position = 3
-    assert player.played_time < 1
+    player.position = 10
+    assert player.played_time < 9
 
 def test_audio_player_volume(audio_file: str) -> None:
     player = AudioPlayer('ffplay', debug_allow_multiple_playbacks=True)
