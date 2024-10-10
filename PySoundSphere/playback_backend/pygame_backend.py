@@ -1,6 +1,4 @@
 import threading
-from audioop import error
-
 import pygame
 import time
 
