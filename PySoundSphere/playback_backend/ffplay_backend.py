@@ -27,7 +27,7 @@ class FfplayBackend:
         """
         self._song_started_at = time.time()
         self._song_started_ahead = start_time
-        self._playback_process = subprocess.Popen(['ffplay', '-nodisp', '-autoexit', '-ss', str(start_time), '-volume', str(self._volume), self._file_path],
+        self._playback_process = subprocess.Popen(["ffplay", "-nodisp", "-autoexit", "-ss", str(start_time), "-volume", str(self._volume), self._file_path],
                                                   stdout=subprocess.DEVNULL,
                                                   stderr=subprocess.DEVNULL)
         self._is_busy = True
@@ -78,3 +78,13 @@ class FfplayBackend:
         Check if the song is playing.
         """
         return self._is_busy
+
+    def set_callback(self, function: callable) -> None:
+        """
+        Callback functions are not implemented for the ffplay backend.
+        This function just raises an error.
+
+        Parameters:
+            function (callable): This is here to make it fit with the other backends
+        """
+        raise NotImplementedError("Callback functions aren't supported by the ffplay backend. Please use another backend.")
