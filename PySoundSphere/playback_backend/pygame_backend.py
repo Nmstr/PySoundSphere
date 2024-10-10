@@ -1,8 +1,14 @@
+import threading
 import pygame
 
 class PygameBackend:
     def __init__(self) -> None:
         pygame.mixer.init()
+        pygame.display.init()
+        self._callback_function = None
+        self.is_playing = False
+        self.event_thread = threading.Thread(target=self._listen_for_callback, daemon=True)
+        self.event_thread.start()
 
     def load(self, file_path: str) -> None:
         """
@@ -18,6 +24,8 @@ class PygameBackend:
             start_time (float): Position in the song in seconds.
         """
         pygame.mixer.music.play(start=start_time)
+        self.is_playing = True
+        pygame.mixer.music.set_endevent(pygame.USEREVENT)
 
     def pause(self) -> None:
         """
@@ -35,6 +43,7 @@ class PygameBackend:
         """
         Stop the song.
         """
+        self.is_playing = False
         pygame.mixer.music.stop()
 
     def set_volume(self, volume: float) -> None:
@@ -51,3 +60,22 @@ class PygameBackend:
         Check if the song is playing.
         """
         return pygame.mixer.music.get_busy()
+
+    def set_callback(self, function: callable) -> None:
+        """
+        Sets a single callback function to be called when the music stops.
+
+        Parameters:
+            function (callable): The callback function to be called.
+        """
+        self._callback_function = function
+
+    def _listen_for_callback(self) -> None:
+        """
+        Listens for pygame events and triggers the callback function if needed
+        """
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.USEREVENT and self.is_playing:
+                    if self._callback_function:
+                        self._callback_function()

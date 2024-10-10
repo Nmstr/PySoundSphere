@@ -1,3 +1,5 @@
+from turtledemo.sorting_animate import enable_keys
+
 import sounddevice as sd
 import soundfile as sf
 
@@ -10,7 +12,9 @@ class SounddeviceBackend:
         self._volume = 0.5
         self._is_busy = False
         self._block_size = blocksize
-    
+        self._callback_function = None
+        self._callback_executed = False
+
     def load(self, file_path: str) -> None:
         """
         Load the song.
@@ -62,6 +66,7 @@ class SounddeviceBackend:
             self._stream.close()
             self._stream = None
             self._is_busy = False
+            self._callback_executed = False
 
     def set_volume(self, new_volume: float) -> None:
         """
@@ -77,7 +82,16 @@ class SounddeviceBackend:
         Check if the song is playing.
         """
         return self._is_busy
-    
+
+    def set_callback(self, function: callable) -> None:
+        """
+        Sets a single callback function to be called when the music stops.
+
+        Parameters:
+            function (callable): The callback function to be called.
+        """
+        self._callback_function = function
+
     def _audio_callback(self, outdata, frames, time, status) -> None:
         """
         Callback function for sounddevice.
@@ -89,6 +103,9 @@ class SounddeviceBackend:
                 outdata[:len(self._data)] = self._volume * self._data
                 outdata[len(self._data):] = 0
                 self._is_busy = False
+                if self._callback_function is not None and not self._callback_executed:
+                    self._callback_function()
+                    self._callback_executed = True
             else:
                 outdata[:] = self._volume * self._data[:frames]
                 self._data = self._data[frames:]
