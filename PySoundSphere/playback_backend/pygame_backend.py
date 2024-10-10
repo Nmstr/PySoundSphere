@@ -1,12 +1,14 @@
 import threading
 import pygame
+import time
 
 class PygameBackend:
     def __init__(self) -> None:
+        pygame.init()
         pygame.mixer.init()
-        pygame.display.init()
         self._callback_function = None
         self.is_playing = False
+        self.MUSIC_END_EVENT = pygame.USEREVENT + 10
         self.event_thread = threading.Thread(target=self._listen_for_callback, daemon=True)
         self.event_thread.start()
 
@@ -25,7 +27,7 @@ class PygameBackend:
         """
         pygame.mixer.music.play(start=start_time)
         self.is_playing = True
-        pygame.mixer.music.set_endevent(pygame.USEREVENT)
+        pygame.mixer.music.set_endevent(self.MUSIC_END_EVENT)
 
     def pause(self) -> None:
         """
@@ -76,6 +78,7 @@ class PygameBackend:
         """
         while True:
             for event in pygame.event.get():
-                if event.type == pygame.USEREVENT and self.is_playing:
+                if event.type == self.MUSIC_END_EVENT and not pygame.mixer.music.get_busy():
                     if self._callback_function:
                         self._callback_function()
+            time.sleep(0.01)

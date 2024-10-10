@@ -47,17 +47,17 @@ def test_audio_player_played_time_with_pause(audio_file: str) -> None:
     player = AudioPlayer('pygame', debug_allow_multiple_playbacks=True)
     player.load(audio_file)
     player.play()
-    time.sleep(1)
+    time.sleep(0.25)
     player.pause()
-    time.sleep(2)
-    assert player.played_time < 2
+    time.sleep(1)
+    assert player.played_time < 1
 
 def test_audio_player_played_time_with_skip(audio_file: str) -> None:
     player = AudioPlayer('pygame', debug_allow_multiple_playbacks=True)
     player.load(audio_file)
     player.play()
-    player.position = 4
-    assert player.played_time < 4
+    player.position = 3
+    assert player.played_time < 3
 
 def test_audio_player_volume(audio_file: str) -> None:
     player = AudioPlayer('pygame', debug_allow_multiple_playbacks=True)
