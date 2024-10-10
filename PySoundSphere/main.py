@@ -32,7 +32,7 @@ class AudioPlayer:
         Load the song.
         """
         if not os.path.exists(file_path):
-            raise ValueError(f'File "{file_path}" does not exist.')
+            raise ValueError(f"File '{file_path}' does not exist.")
         self._file_path = file_path
 
     def play(self) -> None:
@@ -45,10 +45,10 @@ class AudioPlayer:
             self._total_amount_seconds_paused += self._paused_seconds
             self._is_paused = False
         elif self._playback_backend.get_busy() and not self._debug_allow_multiple_playbacks:
-            raise RuntimeError('Audio is already playing.')
+            raise RuntimeError("Audio is already playing.")
         else:
             if not self._file_path:
-                raise ValueError('No audio file loaded.')
+                raise ValueError("No audio file loaded.")
             self._playback_backend.load(self._file_path)
             self._playback_backend.play()
             self._pause_time = 0
@@ -125,6 +125,6 @@ class AudioPlayer:
     @volume.setter
     def volume(self, volume: float) -> None:
         if not isinstance(volume, float):
-            raise TypeError('Volume must be a float.')
+            raise TypeError("Volume must be a float.")
         self._playback_backend.set_volume(volume)
         self._volume = volume

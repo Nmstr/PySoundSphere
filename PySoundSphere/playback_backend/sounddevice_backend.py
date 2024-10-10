@@ -20,7 +20,7 @@ class SounddeviceBackend:
         Parameters:
             file_path (str): Path to the song.
         """
-        self._original_data, self._samplerate = sf.read(file_path, dtype='float32')
+        self._original_data, self._samplerate = sf.read(file_path, dtype="float32")
 
     def pause(self) -> None:
         """
