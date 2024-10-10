@@ -83,7 +83,7 @@ class PygameBackend:
                         if self._callback_function:
                             self._callback_function()
                 time.sleep(0.01)
-        except Exception as e:
+        except Exception:
             """
             This error occurs when the users code ended.
             It is save to ignore.
