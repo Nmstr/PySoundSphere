@@ -1,5 +1,3 @@
-from turtledemo.sorting_animate import enable_keys
-
 import sounddevice as sd
 import soundfile as sf
 

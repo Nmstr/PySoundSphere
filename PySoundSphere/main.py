@@ -1,5 +1,4 @@
 from .playback_backend.backend_loader import load_backend
-import threading
 import time
 import os
 
